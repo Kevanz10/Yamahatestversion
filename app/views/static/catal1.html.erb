@@ -1,0 +1,69 @@
+<%= stylesheet_link_tag 'bootstrap.min'%>
+
+<script id="shoe-template" type="x-handlebars-template">​
+  {{#each this}}​
+    <div class="col-xs-12 col-md-6 {{class}} own">
+      <div class="shop-item" style="padding: 20px;">
+        <div class="shop-content" style="margin-bottom: 20px;">
+          <div class="shop-image-container uk-inline tw-onhover visible" style="height:280px; width:405px; box-shadow:0px 0px!important; border:0px!important; border-radius: 0px!important;">
+            <img alt="Backpack In Blac" class="own-img" src="{{url}}">
+          </div>
+          <a  href="/detalle?{{name}}" class="add-to-cart" data-url="{{name}}" style="border-bottom: 1px solid gray; font-size: 20px; letter-spacing: 2px; color: #000; text-align: center; margin: 0px; font-weight: 100;">{{name}}</a>
+        </div>
+      </div>
+    </div>
+  {{/each}}
+​</script>
+
+<script id="title-template" type="x-handlebars-template">​
+  {{#each this}}​
+    <h1 class="" style="position:relative; top:50%; margin:20px; text-align:center;">{{title}}</h1>
+  {{/each}}
+</script>
+
+<section class="tw-slider tw-slider-fullscreen uk-light own-catalogo">
+  <div class="owl-carousel owl-theme own-theme" style="height:700px;">
+    <div class="slider-item" data-overlay="0.4" style="background-color: #151515; background-image: url(/demo/shop/shop-bg1.jpg);">
+      <div class="tw-page-title-container tw-element">
+        <div class="addTitle" style="height: 700px;"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="uk-section uk-section-shop">
+  <div class="uk-container">
+    <div data-uk-grid>
+      <div class="sidebar-area">
+        <div>
+          <div class="widget-item">
+            <aside class="widget widget_categories">
+              <h3 class="widget-title"><span>Categoría</span></h3>
+              <ul>
+                <li class="cat-item cat-item-2 current-cat"><a class="auto1" href="catal1?auto">Autmáticas y Semiautomáticas</a></li>
+                <li class="cat-item cat-item-7"><a class="urbana1" href="catal1?urbanas">Urbanas trabajo y Deportivas</a></li>
+                <li class="cat-item cat-item-9"><a class="todo1" href="catal1?todo-terreno">Todo Terreno</a></li>
+                <li class="cat-item cat-item-8"><a class="deportivas1" href="catal1?deportivas">Deportivas</a></li>
+                <li class="cat-item cat-item-9"><a class="super1" href="catal1?super">Súper Deportivas</a></li>
+                <li class="cat-item cat-item-8"><a class="sport1" href="catal1?sport">Sport Heritage</a></li>
+                <li class="cat-item cat-item-2 current-cat"><a class="cuatri1" href="catal1?cuatri">Cuatrimotos</a></li>
+              </ul>
+            </aside>
+          </div>
+        </div>
+      </div>
+      <div class="content-area uk-width-expand">
+        <div class="tw-element tw-shop">
+          <div class="container-fluid" style="padding:0px;">
+            <div class="row">
+              <div class="cont-templeate"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<%=javascript_include_tag "catalog"%>
+<%=javascript_include_tag "bootstrap.min"%>
