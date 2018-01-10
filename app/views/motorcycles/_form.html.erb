@@ -35,8 +35,8 @@
 
             <a href="#" class="remove">remove</a>
 
-            <%= form.hidden_field :id %>
-            <%= form.hidden_field :_destroy %>
+            <%= f.hidden_field :id %>
+            <%= f.hidden_field :_destroy %>
           </fieldset>
         <% end %>
       </div>
@@ -44,22 +44,41 @@
     </div>
 
 
-    <div class="types">
+    <div class="gallery">
       <!-- types -->
       <div class="items">
-        <%= form.nested_fields_for :types do |f| %>
+        <%= form.nested_fields_for :types do |t| %>
           <fieldset class="item">
-            <%= f.label "Nombre Tipo" %>
-            <%= f.text_area :name %>
+            <%= t.label "Nombre Tipo" %>
+            <%= t.text_area :name %>
 
-            <%= f.label "valor tipo" %>
-            <%= f.text_field :price %>
+            <%= t.label "valor tipo" %>
+            <%= t.text_field :price %>
 
             <a href="#" class="remove">remove</a>
 
-            <%= form.hidden_field :id %>
-            <%= form.hidden_field :_destroy %>
+            <%= t.hidden_field :id %>
+            <%= t.hidden_field :_destroy %>
           </fieldset>
+          <% if t.object.gallery.nil? %>
+            <%= t.fields_for :gallery, t.object.build_gallery do  |g| %>
+              <div class="images-photo">
+                <div class="items">
+                  <%= g.nested_fields_for :images do |i| %>
+                    <fieldset class="item">
+                      <div class="modal-body">
+                        <%= file_field_tag :photo %>
+                      </div>
+                    </fieldset>
+                  <% end %>
+                </div>
+                <div class="text-center">
+                  <a href="#" class="btn btn-primary image-spec">Agregar Imagen</a>
+                </div>
+              </div>
+              
+            <% end %>
+          <% end %>
         <% end %>
       </div>
       <a href="#" class="btn btn-primary type-spec">Agregar tipo</a>

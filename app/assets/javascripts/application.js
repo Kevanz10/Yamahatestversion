@@ -32,4 +32,12 @@ jQuery(document).ready(function($) {
   $('.motorcycle FORM .types').nestedFields({
     addSelector: '.type-spec'
   });
+
+  $('.motorcycle FORM .gallery').nestedFields({
+    addSelector: '.type-spec'
+  });
+
+  $('.motorcycle FORM .items .images-photo').nestedFields({
+    addSelector: '.image-spec'
+  });
 });
