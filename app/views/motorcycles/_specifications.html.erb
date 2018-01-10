@@ -1,0 +1,16 @@
+<div class="items">
+  <%= specs.nested_fields_for :specifications do |a| %>
+    <fieldset class="item">
+      <%= a.label "especificación" %>
+      <%= a.text_area :name %>
+
+      <%= a.label "precio" %>
+      <%= a.text_field :price %>
+      <a href="#" class="remove">remove</a>
+
+      <%= form.hidden_field :id %>
+      <%= form.hidden_field :_destroy %>
+    </fieldset>
+  <% end %>
+  </div>
+<a href="#" class="btn btn-primary">Agregar especificación</a>

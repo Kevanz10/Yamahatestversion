@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171123230339) do
+ActiveRecord::Schema.define(version: 20180110063935) do
 
   create_table "cama_comments", force: :cascade do |t|
     t.string "author"
@@ -151,6 +151,28 @@ ActiveRecord::Schema.define(version: 20171123230339) do
     t.index ["username"], name: "index_cama_users_on_username"
   end
 
+  create_table "galleries", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "type_id"
+    t.index ["type_id"], name: "index_galleries_on_type_id"
+  end
+
+  create_table "images", force: :cascade do |t|
+    t.integer "gallery_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "photo"
+    t.index ["gallery_id"], name: "index_images_on_gallery_id"
+  end
+
+  create_table "motorcycles", force: :cascade do |t|
+    t.string "name"
+    t.integer "price"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "plugins_contact_forms", force: :cascade do |t|
     t.integer "site_id"
     t.integer "count"
@@ -162,6 +184,24 @@ ActiveRecord::Schema.define(version: 20171123230339) do
     t.text "settings"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "specifications", force: :cascade do |t|
+    t.string "name"
+    t.string "price"
+    t.integer "motorcycle_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["motorcycle_id"], name: "index_specifications_on_motorcycle_id"
+  end
+
+  create_table "types", force: :cascade do |t|
+    t.string "name"
+    t.string "price"
+    t.integer "motorcycle_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["motorcycle_id"], name: "index_types_on_motorcycle_id"
   end
 
 end

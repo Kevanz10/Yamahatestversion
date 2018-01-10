@@ -15,6 +15,7 @@
 //= require jquery-3.2.0.min
 //= require jquery.easypiechart.min
 //= require jquery-ui.min
+//= require jquery.nested-fields
 //= require uikit.min
 //= require uikit-icons.min
 //= require isotope.pkgd.min
@@ -23,3 +24,12 @@
 //= require theme
 //= require plugin
 //= require handlebars-v4.0.11
+jQuery(document).ready(function($) {
+  $('.motorcycle FORM .specs').nestedFields({
+    addSelector: '.add-spec'
+  });
+
+  $('.motorcycle FORM .types').nestedFields({
+    addSelector: '.type-spec'
+  });
+});

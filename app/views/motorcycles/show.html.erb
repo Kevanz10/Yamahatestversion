@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @motorcycle.name %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @motorcycle.price %>
+</p>
+
+<p>
+  <strong>SPECS:</strong>
+  <textarea disabled>
+    <%= @motorcycle.specifications.first.name %>
+  </textarea>
+</p>
+<p>
+  <strong>TYPE:</strong>
+  <textarea disabled>
+    <%= @motorcycle.types.first.name %>
+  </textarea>
+</p>
+
+<%= link_to 'Edit', edit_motorcycle_path(@motorcycle) %> |
+<%= link_to 'Back', motorcycles_path %>

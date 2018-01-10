@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  resources :images
+  resources :galleries
+  resources :types
+  resources :specifications
+  resources :motorcycles
   root to: 'static#home'
   get '/catalogo', to: 'static#catalogo'
   get '/detalle', to: 'static#detalle'
@@ -9,4 +14,6 @@ Rails.application.routes.draw do
   get '/send_finan', to: 'forms#finan'
   get '/catal1', to: 'static#catal1'
   get '/catal2', to: 'static#catal2'
+
+  post '/add_photo', to: 'images#add_photo'
 end
